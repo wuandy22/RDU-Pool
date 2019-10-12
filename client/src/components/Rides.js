@@ -73,7 +73,7 @@ class Rides extends Component {
           else{
             //console.log("collegeValue: " + this.props.collegeValue);
             //console.log(ride.college);
-            if(this.state.college == ride.college){
+            if(this.props.collegeValue == ride.college){
               return(<ListGroupItem key={ride.id}>
                 <div>{ride.name}</div>
                 <div>{ride.college}</div>
@@ -82,10 +82,8 @@ class Rides extends Component {
               </ListGroupItem>);
             }
             else{
-              return(<p>Nope</p>);
+              return(<div></div>);
             }
-
-            //return(<p>filtered!</p>);
           }
         }
         )}
