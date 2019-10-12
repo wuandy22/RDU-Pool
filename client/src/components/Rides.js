@@ -28,11 +28,34 @@ class Rides extends Component {
           
           var date = new Date(ride.date);
           var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+          var month = date.getMonth();
+          var day = date.getDate();
+          var year = date.getFullYear();
+          var hour = date.getHours();
+          var minute = date.getMinutes();
+          var ampm = "am";
+
+          if(minute < 10){
+            minute = "0" + minute;
+          }
+
+          if(hour >= 12){
+            ampm = "pm";
+          }
+
+          hour = hour%12;
+          
+          if(hour == 0){
+            hour = 12;
+          }
+
+
           return(<ListGroupItem key={ride.id}>
             <div>{ride.name}</div>
             <div>{ride.college}</div>
-            <div>{months[date.getMonth()]} {date.getDate()} {date.getFullYear()}</div>
-            <div>{date.getHours()}:{date.getMinutes()}</div>
+            <div>{months[month]} {day} {year}</div>
+            <div>{hour}:{minute} {ampm}</div>
           </ListGroupItem>);
         }
         )}
