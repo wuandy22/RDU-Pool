@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
-import './customers.css';
+import React, {Component} from 'react';
+import {Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import PropTypes from 'prop-types';
+import './rides.css';
 
 class Rides extends Component {
   constructor() {
@@ -19,14 +22,11 @@ class Rides extends Component {
     return (
       <div>
         <h2>Rides</h2>
-        <ul>
+        <ListGroup>
         {this.state.rides.map(ride => 
-          <div>
-            <li key={ride.id}>{ride.name} </li>
-            <li key={ride.id}>{ride.college}</li>
-          </div>
+            <ListGroupItem key={ride.id}>{ride.name} {ride.college}</ListGroupItem>
         )}
-        </ul>
+        </ListGroup>
       </div>
     );
   }
