@@ -24,7 +24,7 @@ class Rides extends Component {
         <h2>Rides</h2>
         <ListGroup>
         {this.state.rides.map(ride => 
-            <ListGroupItem key={ride.id}>{ride.name} {ride.college}</ListGroupItem>
+            <ListGroupItem key={ride.id}>{ride.name} {ride.college} {ride.date}</ListGroupItem>
         )}
         </ListGroup>
       </div>
