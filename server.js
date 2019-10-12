@@ -8,6 +8,15 @@ const app = express();
 // Bodyparse Middleware
 app.use(bodyParser.json());
 
+// DB config
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected...'))
+    .catch(err => console.log(err));
+
 app.get('/api/customers', (req, res) => {
   const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
@@ -18,6 +27,6 @@ app.get('/api/customers', (req, res) => {
   res.json(customers);
 });
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(port, () => `Server running on port ${port}`);
+app.listen(port, () => console.log(`Server started on port ${port}`));
