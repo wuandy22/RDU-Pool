@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
+import RideModal from './RideModal';
 
 export default class RideItem extends Component {
     render() {
@@ -13,6 +14,7 @@ export default class RideItem extends Component {
               <div>{months[this.props.month]} {this.props.day} {this.props.year}</div>
               <div>{this.props.hour}:{this.props.minute} {this.props.ampm}</div>
               <div>{this.props.ride.email}</div>
+              <RideModal name={this.props.ride.name}></RideModal>
             </ListGroupItem>
         )
     }

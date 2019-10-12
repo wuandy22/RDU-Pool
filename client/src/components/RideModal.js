@@ -42,24 +42,24 @@ class RideModal extends Component {
             <div>
                 <Button
                     color="dark"
-                    style={{marginBottom: '2rem'}}
+                    style={{marginBottom: '2rem', marginTop:'2rem'}}
                     onClick={this.toggle}
                 >
-                Add Item</Button>
+                Contact</Button>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                    <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Send an email to {this.props.name}</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for='item'>Item</Label>
+                                <Label for='message'>Message</Label>
                                 <Input
                                     type='text'
                                     name='name'
                                     id='item'
-                                    placeholder="Add shopping item"
+                                    placeholder="Type your message..."
                                     onChange={this.onChange}
                                 />
                                 <Button
@@ -67,7 +67,7 @@ class RideModal extends Component {
                                     style={{marginTop: '2rem'}}
                                     block
                                 >
-                                    Add Item</Button>
+                                    Send</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>
