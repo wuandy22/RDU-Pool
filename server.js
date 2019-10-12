@@ -1,6 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
+
+// Bodyparse Middleware
+app.use(bodyParser.json());
 
 app.get('/api/customers', (req, res) => {
   const customers = [
