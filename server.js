@@ -19,16 +19,6 @@ mongoose
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-/*app.get('/api/items', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
-
-  res.json(customers);
-});*/
-
 // Use routes*
 app.use('/api/items', items);
 
