@@ -29,7 +29,7 @@ mongoose
   res.json(customers);
 });*/
 
-// Use routes
+// Use routes*
 app.use('/api/items', items);
 
 const port = process.env.PORT || 5000;
