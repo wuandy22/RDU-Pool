@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">RDU Pool</h1>
+          <h1 className="App-title">Pool Party</h1>
           <InputBar />
         </header>
         <Rides className="mt-3"/>

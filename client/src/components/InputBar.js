@@ -60,7 +60,7 @@ export default class InputBar extends Component {
                         <Input type="name" name="name" value={this.state.name} onChange={e => this.setState({ name: e.target.value })}/>
                     </FormGroup>
 
-                    <FormGroup className="col-3">
+                    <FormGroup className="col-2">
                         <Label for="exampleSelect">College</Label>
                         <Input type="select" name="select" id="exampleSelect" value={this.state.college} onChange={e => this.setState({ college: e.target.value })}>
                         <option>UNC Chapel Hill</option>
@@ -69,54 +69,6 @@ export default class InputBar extends Component {
                         <option>Wake Forest</option>
                         </Input>
                     </FormGroup>
-
-                   {/* <FormGroup className="col-1">
-                        <Label for="exampleSelect">Month</Label>
-                        <Input type="select" name="month" id="exampleSelect" value={this.state.month} onChange={e => this.setState({ month: e.target.value })}>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
-                        </Input>
-                    </FormGroup>
-
-                    <FormGroup className="col-1">
-                        <Label>Day</Label>
-                        <Input type="day" name="day" value={this.state.day} onChange={e => this.setState({ day: e.target.value })}/>
-                    </FormGroup>
-
-                    <FormGroup className="col-1">
-                        <Label>Year</Label>
-                        <Input type="year" name="year" value={this.state.year} onChange={e => this.setState({ year: e.target.value })}/>
-                    </FormGroup>
-
-                    <FormGroup className="col-1">
-                        <Label>Hour</Label>
-                        <Input type="hour" name="hour" value={this.state.hour} onChange={e => this.setState({ hour: e.target.value })}/>
-                    </FormGroup>
-
-                    <Label>:</Label>
-
-                    <FormGroup className="col-1">
-                        <Label>Minute</Label>
-                        <Input type="minute" name="minute" value={this.state.minute} onChange={e => this.setState({ minute: e.target.value })}/>
-                    </FormGroup>
-
-
-                    <FormGroup className="col-1">
-                        <Label for="exampleSelect">AM/PM</Label>
-                        <Input type="select" name="ampm" id="exampleSelect" value={this.state.ampm} onChange={e => this.setState({ ampm: e.target.value })}>
-                        <option>AM</option>
-                        <option>PM</option>
-                        </Input>
-                    </FormGroup> */}
                     
                     <DateTimePicker
                         value = {this.state.date}
@@ -126,7 +78,9 @@ export default class InputBar extends Component {
 
                     </DateTimePicker>
                 
-                    <Button type="submit" className="col-1">Submit</Button>
+                    <Button type="button" className="col-1 m-2">Filter</Button>
+                    <Button type="button" className="col-1 m-2">Reset</Button>
+                    <Button type="submit" className="col-1 m-2">Submit</Button>
                 </Form>
             </div>
         )
