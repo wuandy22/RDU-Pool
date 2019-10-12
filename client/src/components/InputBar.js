@@ -25,11 +25,12 @@ export default class InputBar extends Component {
                         </Input>
                     </FormGroup>
 
-                    <DateTimePicker className="col-4"
+                    <DateTimePicker className="col-6"
                               onChange={this.onChange}
                               value={this.state.date}
                     />
                 
+                    <Button className="col-2">Submit</Button>
                 </InputGroup>
             </div>
         )
