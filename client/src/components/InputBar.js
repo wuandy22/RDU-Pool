@@ -8,17 +8,24 @@ export default class InputBar extends Component {
     state = {
         date: new Date(),
         name: "",
-        college: "UNC Chapel Hill"
+        college: "UNC Chapel Hill",
+        /*month: "",
+        day: "",
+        year: "",
+        hour: "",
+        minute: "",
+        ampm: ""*/
     }
-     
-    onChange = date => this.setState({ date })
+
+    onDateChange = (d) => {
+        this.setState({date: d});
+    }
 
     onFormSubmit = (e) => {
         e.preventDefault();
 
         console.log("Name: " + this.state.name);
         console.log("College: " + this.state.college);
-        console.log("Date" + this.state.date);
 
         fetch('/api/items', {
             method: 'POST',
@@ -30,8 +37,16 @@ export default class InputBar extends Component {
                 name: this.state.name,
                 college: this.state.college,
                 date: this.state.date
+                /*month: this.state.month,
+                day: this.state.day,
+                year: this.state.year,
+                hour: this.state.hour,
+                minute: this.state.minute,
+                ampm: this.state.ampm*/
             })
-        })
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
 
         window.location.reload(true);
     }
@@ -55,12 +70,63 @@ export default class InputBar extends Component {
                         </Input>
                     </FormGroup>
 
-                    <DateTimePicker className="col-4"
-                              onChange={this.onChange}
-                              value={this.state.date}
-                    />
+                   {/* <FormGroup className="col-1">
+                        <Label for="exampleSelect">Month</Label>
+                        <Input type="select" name="month" id="exampleSelect" value={this.state.month} onChange={e => this.setState({ month: e.target.value })}>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                        </Input>
+                    </FormGroup>
+
+                    <FormGroup className="col-1">
+                        <Label>Day</Label>
+                        <Input type="day" name="day" value={this.state.day} onChange={e => this.setState({ day: e.target.value })}/>
+                    </FormGroup>
+
+                    <FormGroup className="col-1">
+                        <Label>Year</Label>
+                        <Input type="year" name="year" value={this.state.year} onChange={e => this.setState({ year: e.target.value })}/>
+                    </FormGroup>
+
+                    <FormGroup className="col-1">
+                        <Label>Hour</Label>
+                        <Input type="hour" name="hour" value={this.state.hour} onChange={e => this.setState({ hour: e.target.value })}/>
+                    </FormGroup>
+
+                    <Label>:</Label>
+
+                    <FormGroup className="col-1">
+                        <Label>Minute</Label>
+                        <Input type="minute" name="minute" value={this.state.minute} onChange={e => this.setState({ minute: e.target.value })}/>
+                    </FormGroup>
+
+
+                    <FormGroup className="col-1">
+                        <Label for="exampleSelect">AM/PM</Label>
+                        <Input type="select" name="ampm" id="exampleSelect" value={this.state.ampm} onChange={e => this.setState({ ampm: e.target.value })}>
+                        <option>AM</option>
+                        <option>PM</option>
+                        </Input>
+                    </FormGroup> */}
+                    
+                    <DateTimePicker
+                        value = {this.state.date}
+                        onChange = {this.onDateChange}
+                        className = "col-3"
+                    >
+
+                    </DateTimePicker>
                 
-                    <Button type="submit" className="col-2">Submit</Button>
+                    <Button type="submit" className="col-1">Submit</Button>
                 </Form>
             </div>
         )

@@ -19,12 +19,22 @@ class Rides extends Component {
   }
 
   render() {
+
     return (
       <div>
         <h2>Rides</h2>
         <ListGroup>
-        {this.state.rides.map(ride => 
-            <ListGroupItem key={ride.id}>{ride.name} {ride.college} {ride.date}</ListGroupItem>
+        {this.state.rides.map(ride => {
+          
+          var date = new Date(ride.date);
+          var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          return(<ListGroupItem key={ride.id}>
+            <div>{ride.name}</div>
+            <div>{ride.college}</div>
+            <div>{months[date.getMonth()]} {date.getDate()} {date.getFullYear()}</div>
+            <div>{date.getHours()}:{date.getMinutes()}</div>
+          </ListGroupItem>);
+        }
         )}
         </ListGroup>
       </div>

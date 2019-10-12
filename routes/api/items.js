@@ -19,7 +19,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const newItem = new Item({
         name: req.body.name,
-        college: req.body.college
+        college: req.body.college,
+        date: req.body.date
     });
 
     console.log(req.body.name);
