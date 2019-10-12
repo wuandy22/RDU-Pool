@@ -73,7 +73,20 @@ class Rides extends Component {
           else{
             //console.log("collegeValue: " + this.props.collegeValue);
             //console.log(ride.college);
-            if(this.props.collegeValue == ride.college){
+
+            var similarTime = true;
+
+            console.log(this.props.dateValue);
+            var date2 = new Date(this.props.dateValue);
+            if(date2 != undefined){
+              console.log("check time");
+              console.log(date2);
+              if(date2.getFullYear() != year || date2.getMonth() != month || date2.getDate() != day || Math.abs(date2.getHours() - date.getHours() > 2)){
+                similarTime = false;
+              }
+            }
+
+            if(this.props.collegeValue == ride.college && similarTime){
               return(<ListGroupItem key={ride.id}>
                 <div>{ride.name}</div>
                 <div>{ride.college}</div>
