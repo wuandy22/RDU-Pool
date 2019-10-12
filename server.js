@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const items = require('./routes/api/items');
+
 const app = express();
 
 // Bodyparse Middleware
@@ -17,7 +19,7 @@ mongoose
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-app.get('/api/customers', (req, res) => {
+/*app.get('/api/items', (req, res) => {
   const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
     {id: 2, firstName: 'Brad', lastName: 'Traversy'},
@@ -25,7 +27,10 @@ app.get('/api/customers', (req, res) => {
   ];
 
   res.json(customers);
-});
+});*/
+
+// Use routes
+app.use('/api/items', items);
 
 const port = process.env.PORT || 5000;
 
