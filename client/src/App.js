@@ -11,20 +11,35 @@ class App extends Component {
     super(props);
 
     this.state = {
-      filter: false
+      filter: false,
+      date: new Date(),
+      college: "UNC Chapel Hill"
     }
   }
 
-  filterList = () => {
-    this.setState({filter: true});
+  /*updateSearch = (c,d) => {
+    this.setState({college: c});
+    this.setState({date: d});
+    this.filterList();
+  }*/
+
+  filterList = (c,d) => {
+    this.setState({
+      filter: true,
+      college: c,
+      date: d
+    });
+      
     console.log("FILTER!");
     console.log(this.state.filter);
+    console.log("college: " + this.state.college);
+    console.log("date: " + this.state.date);
   }
 
   resetList = () => {
     this.setState({filter: false});
-    console.log("RESET!");
-    console.log(this.state.filter);
+    /*console.log("RESET!");
+    console.log(this.state.filter);*/
   }
 
   render() {
@@ -32,9 +47,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Pool Party</h1>
-          <InputBar filterList={this.filterList} resetList={this.resetList}/>
+          <InputBar filterList={this.filterList} resetList={this.resetList} updateSearch={this.updateSearch}/>
         </header>
-        <Rides filterValue={this.state.filter} className="mt-3"/>
+        <Rides filterValue={this.state.filter} dateValue={this.state.date} collegeValue={this.state.college} className="mt-3"/>
       </div>
     );
   }

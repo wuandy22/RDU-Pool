@@ -8,8 +8,7 @@ class Rides extends Component {
   constructor() {
     super();
     this.state = {
-      rides: [],
-      filter: false
+      rides: []
     };
   }
 
@@ -19,11 +18,17 @@ class Rides extends Component {
       .then(rides => this.setState({rides}, () => console.log('Items fetched...', rides)));
   }
 
-  componentWillReceiveProps(nextProps) {
+  /*componentWillReceiveProps(nextProps) {
     console.log("child update");
     console.log("nextprops: " + nextProps);
-    this.setState({ filter: nextProps.filterValue });  
-  }
+    console.log(nextProps.collegeValue);
+    
+    this.setState({
+      college: nextProps.collegeValue,
+      date: nextProps.dateValue
+    });
+
+  }*/
 
   render() {
 
@@ -57,7 +62,7 @@ class Rides extends Component {
             hour = 12;
           }
 
-          if(!this.state.filter){
+          if(!this.props.filterValue){
             return(<ListGroupItem key={ride.id}>
               <div>{ride.name}</div>
               <div>{ride.college}</div>
@@ -66,7 +71,21 @@ class Rides extends Component {
             </ListGroupItem>);
           }
           else{
-            return(<p>Filtered!</p>);
+            //console.log("collegeValue: " + this.props.collegeValue);
+            //console.log(ride.college);
+            if(this.state.college == ride.college){
+              return(<ListGroupItem key={ride.id}>
+                <div>{ride.name}</div>
+                <div>{ride.college}</div>
+                <div>{months[month]} {day} {year}</div>
+                <div>{hour}:{minute} {ampm}</div>
+              </ListGroupItem>);
+            }
+            else{
+              return(<p>Nope</p>);
+            }
+
+            //return(<p>filtered!</p>);
           }
         }
         )}
