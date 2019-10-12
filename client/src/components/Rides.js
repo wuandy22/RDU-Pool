@@ -8,7 +8,8 @@ class Rides extends Component {
   constructor() {
     super();
     this.state = {
-      rides: []
+      rides: [],
+      filter: false
     };
   }
 
@@ -16,6 +17,12 @@ class Rides extends Component {
     fetch('/api/items')
       .then(res => res.json())
       .then(rides => this.setState({rides}, () => console.log('Items fetched...', rides)));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("child update");
+    console.log("nextprops: " + nextProps);
+    this.setState({ filter: nextProps.filterValue });  
   }
 
   render() {
@@ -50,13 +57,17 @@ class Rides extends Component {
             hour = 12;
           }
 
-
-          return(<ListGroupItem key={ride.id}>
-            <div>{ride.name}</div>
-            <div>{ride.college}</div>
-            <div>{months[month]} {day} {year}</div>
-            <div>{hour}:{minute} {ampm}</div>
-          </ListGroupItem>);
+          if(!this.state.filter){
+            return(<ListGroupItem key={ride.id}>
+              <div>{ride.name}</div>
+              <div>{ride.college}</div>
+              <div>{months[month]} {day} {year}</div>
+              <div>{hour}:{minute} {ampm}</div>
+            </ListGroupItem>);
+          }
+          else{
+            return(<p>Filtered!</p>);
+          }
         }
         )}
         </ListGroup>

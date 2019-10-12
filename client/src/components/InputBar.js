@@ -8,13 +8,7 @@ export default class InputBar extends Component {
     state = {
         date: new Date(),
         name: "",
-        college: "UNC Chapel Hill",
-        /*month: "",
-        day: "",
-        year: "",
-        hour: "",
-        minute: "",
-        ampm: ""*/
+        college: "UNC Chapel Hill"
     }
 
     onDateChange = (d) => {
@@ -78,8 +72,8 @@ export default class InputBar extends Component {
 
                     </DateTimePicker>
                 
-                    <Button type="button" className="col-1 m-2">Filter</Button>
-                    <Button type="button" className="col-1 m-2">Reset</Button>
+                    <Button type="button" onClick={this.props.filterList} className="col-1 m-2">Filter</Button>
+                    <Button type="button" onClick={this.props.resetList} className="col-1 m-2">Reset</Button>
                     <Button type="submit" className="col-1 m-2">Submit</Button>
                 </Form>
             </div>
