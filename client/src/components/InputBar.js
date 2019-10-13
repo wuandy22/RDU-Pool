@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { InputGroup, InputGroupAddon, InputGroupText, Input, Button, Form, FormGroup, Label, FormText } from 'reactstrap';
 import DateTimePicker from 'react-datetime-picker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './inputBar.css';
 
 export default class InputBar extends Component {
 
@@ -74,9 +75,9 @@ export default class InputBar extends Component {
 
                     </DateTimePicker>
                 
-                    <Button type="button" onClick={() => this.props.filterList(this.state.college,this.state.date)} className="col-1">Filter</Button>
-                    <Button type="button" onClick={this.props.resetList} className="col-1">Reset</Button>
-                    <Button type="submit" className="col-1">Submit</Button>
+                    <Button type="button" onClick={() => this.props.filterList(this.state.college,this.state.date)} className="button col-1">Filter</Button>
+                    <Button type="button" onClick={this.props.resetList} className="button col-1">Reset</Button>
+                    <Button type="submit" className="button col-1">Submit</Button>
                 </Form>
             </div>
         )

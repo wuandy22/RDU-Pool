@@ -31,7 +31,7 @@ class RideModal extends Component {
     }
 
     onSubmit = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
 
         console.log("Email sent!");
 
