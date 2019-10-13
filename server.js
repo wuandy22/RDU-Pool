@@ -28,6 +28,7 @@ app.use('/api/items', items);
 app.post('/api/form', (req, res) => {
   nodemailer.createTestAccount((err, account) => {
     const htmlEmail = `
+      <h1>${req.body.name} wants to pool!</h1>
       <h3>Contact Details</h3>
       <ul>
         <li>Name: ${req.body.name}</li>

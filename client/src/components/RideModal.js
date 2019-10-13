@@ -38,12 +38,14 @@ class RideModal extends Component {
         const emailReceiver = this.props.emailReceiver;
         const {name, emailSender, message} = this.state;
 
-        const form = await axios.post('/api/form', {
-            name,
-            emailReceiver,
-            emailSender,
-            message
-        })
+        if(name != "" && emailSender != "" && message != ""){
+            const form = await axios.post('/api/form', {
+                name,
+                emailReceiver,
+                emailSender,
+                message
+            })
+        }
 
         //Close modal
         this.toggle();
