@@ -86,6 +86,7 @@ class RideModal extends Component {
                                     onChange={this.onChange}
                                 />
                                 <Button
+                                    disabled={this.state.name.length * this.state.emailSender.length * this.state.message.length ==0}
                                     color='dark'
                                     style={{marginTop: '2rem'}}
                                     block
