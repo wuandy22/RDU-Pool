@@ -47,6 +47,7 @@ export default class InputBar extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'cache-control': 'no-cache'
             },
             body: JSON.stringify({
                 name: this.state.name,
