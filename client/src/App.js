@@ -50,7 +50,7 @@ class App extends Component {
           <h1 className="App-title mb-4">Pool Party</h1>
           <InputBar filterList={this.filterList} resetList={this.resetList} updateSearch={this.updateSearch}/>
         </header>
-        <iframe className="m-3" width="600" height="450" frameborder="0" style={{border:'10'}} src="https://www.google.com/maps/embed/v1/view?zoom=12&center=35.8992%2C-78.8636&key=AIzaSyAgZLzbSuuyL8hrQ3BWNeGTSS620Rv4E6g" allowfullscreen></iframe>
+        <iframe className="m-3" width="300" height="225" frameborder="0" style={{border:'10'}} src="https://www.google.com/maps/embed/v1/view?zoom=12&center=35.8992%2C-78.8636&key=AIzaSyAgZLzbSuuyL8hrQ3BWNeGTSS620Rv4E6g" allowfullscreen></iframe>
         <Rides className="Rides" filterValue={this.state.filter} dateValue={this.state.date} collegeValue={this.state.college}/>
       </div>
     );
