@@ -44,7 +44,6 @@ export default class InputBar extends Component {
 
         fetch('/api/items', {
             method: 'POST',
-            cache: false,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
