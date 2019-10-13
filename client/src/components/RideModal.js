@@ -32,23 +32,18 @@ class RideModal extends Component {
     }
 
     onSubmit = async (e) => {
-<<<<<<< HEAD
-=======
         //e.preventDefault();
 
->>>>>>> e9ef98be7c9f490d65abf40d1f19a06199e2e9ea
         console.log("Email sent!");
 
         const emailReceiver = this.props.emailReceiver;
         const {name, emailSender, message} = this.state;
-<<<<<<< HEAD
         const form = await axios.post('/api/form', {
             name,
             emailReceiver,
             emailSender,
             message,
         })
-=======
 
         if(name != "" && emailSender != "" && message != ""){
             const form = await axios.post('/api/form', {
@@ -58,7 +53,6 @@ class RideModal extends Component {
                 message
             })
         }
->>>>>>> e9ef98be7c9f490d65abf40d1f19a06199e2e9ea
 
         //Close modal
         this.toggle();
@@ -99,11 +93,7 @@ class RideModal extends Component {
                                     onChange={this.onChange}
                                 />
                                 <Button
-<<<<<<< HEAD
-                                    disabled={!(this.state.name == '' || this.state.emailSender == '' || this.state.message == '') ? false : true}
-=======
                                     disabled={this.state.name.length * this.state.emailSender.length * this.state.message.length ==0}
->>>>>>> e9ef98be7c9f490d65abf40d1f19a06199e2e9ea
                                     color='dark'
                                     style={{marginTop: '2rem'}}
                                     block
