@@ -17,8 +17,7 @@ class RideModal extends Component {
         name: "",
         emailSender: "",
         emailReceiver: "",
-        message: "",
-        valid: false
+        message: ""
     }
 
     toggle = () => {
@@ -28,7 +27,7 @@ class RideModal extends Component {
     }
 
     onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     onSubmit = async (e) => {
@@ -38,12 +37,6 @@ class RideModal extends Component {
 
         const emailReceiver = this.props.emailReceiver;
         const {name, emailSender, message} = this.state;
-        const form = await axios.post('/api/form', {
-            name,
-            emailReceiver,
-            emailSender,
-            message,
-        })
 
         if(name != "" && emailSender != "" && message != ""){
             const form = await axios.post('/api/form', {
