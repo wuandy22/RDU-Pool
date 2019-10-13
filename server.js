@@ -41,15 +41,15 @@ app.post('/api/form', (req, res) => {
       host: 'smtp.gmail.com',
       post: 587,
       auth: {
-        user: 'wuandy22@gmail.com',
-        pass: 'Woulard69'
+        user: 'PoolPartyDuke@gmail.com',
+        pass: 'ChodeMuncher69'
       }
     })
 
     let mailOptions = {
-      from: 'wuandy22@gmail.com',
+      from: 'PoolPartyDuke@gmail.com',
       to: req.body.emailReceiver,
-      replyTo: 'wuandy22@gmail.com',
+      replyTo: 'PoolPartyDuke@gmail.com',
       subject: 'Pool Party Notification',
       text: req.body.message,
       html: htmlEmail
